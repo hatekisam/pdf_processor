@@ -43,7 +43,7 @@ const Tab4 = () => {
                                         </div>
                                 </div>
 
-                                <div className=" h-full w-[30%] flex flex-col overflow-auto p-4 gap-5">
+                                <div className=" h-full w-[25%] flex flex-col overflow-auto p-4 gap-5">
                                         <div className='w-full p-2 rounded-md border-2 border-black text-center gap-4 overflow-auto'>
                                                 <h1 className='text-[1.22rem] font-bold'>This is the page 2 in the PDF</h1>
                                         </div>

@@ -239,25 +239,25 @@ const App = () => {
                         <div className="flex flex-col h-full">
                                 <div className="h-[80px] border-b-blue-500 border-b-2">
                                         <div className="w-full h-full flex items-center justify-center gap-5">
-                                                <div className="flex-col flex items-center">
-                                                        <img src="/svg/1sel.svg" alt="" className='z-50' />
+                                                <div className="flex-col flex items-center p-4">
+                                                        <div className={`w-[40px] h-[40px] p-2 ${activeTab >= 0 ? 'bg-blue-500 ': 'bg-neutral-300'} flex justify-center items-center rounded-full font-bold text-white`}>1</div>
                                                         <p>Upload pdf</p>
                                                 </div>
                                                 <div className="flex-col flex items-center">
-                                                        <img src="/svg/1sel.svg" alt="" className='z-50' />
-                                                        <p>Upload pdf</p>
+                                                        <div className={`w-[40px] h-[40px] p-2 ${activeTab >= 1 ? 'bg-blue-500 ' : 'bg-neutral-300'} flex justify-center items-center  rounded-full font-bold text-white`}>2</div>
+                                                        <p>Extract</p>
                                                 </div>
                                                 <div className="flex-col flex items-center">
-                                                        <img src="/svg/1sel.svg" alt="" className='z-50' />
-                                                        <p>Upload pdf</p>
+                                                        <div className={`w-[40px] h-[40px] p-2 ${activeTab >= 2 ? 'bg-blue-500 ' : 'bg-neutral-300'} flex justify-center items-center rounded-full font-bold text-white`}>3</div>
+                                                        <p>Chop-off</p>
                                                 </div>
                                                 <div className="flex-col flex items-center">
-                                                        <img src="/svg/1sel.svg" alt="" className='z-50' />
-                                                        <p>Upload pdf</p>
+                                                        <div className={`w-[40px] h-[40px] p-2 ${activeTab >= 3 ? 'bg-blue-500 ' : 'bg-neutral-300'} flex justify-center items-center rounded-full font-bold text-white`}>4</div>
+                                                        <p>Processing</p>
                                                 </div>
                                                 <div className="flex-col flex items-center">
-                                                        <img src="/svg/1sel.svg" alt="" className='z-50' />
-                                                        <p>Upload pdf</p>
+                                                        <div className={`w-[40px] h-[40px] p-2 ${activeTab >= 4 ? 'bg-blue-500 ' : 'bg-neutral-300'} flex justify-center items-center rounded-full font-bold text-white`}>5</div>
+                                                        <p>Outcome</p>
                                                 </div>
                                         </div>
                                 </div>

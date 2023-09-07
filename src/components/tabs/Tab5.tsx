@@ -6,7 +6,7 @@ const Tab5 = () => {
                 <div className='w-full h-full'>
                         <div className="flex h-full w-full">
                        
-                                <div className=" h-full w-[20%] flex flex-col overflow-auto p-4 gap-5">
+                                <div className=" h-full w-[50%] flex flex-col overflow-auto p-4 gap-5">
                                         <div className='w-full p-2 rounded-md border-2 border-black text-center gap-4 overflow-auto'>
                                                 <h1>Author name</h1>
                                         </div>
