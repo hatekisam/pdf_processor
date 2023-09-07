@@ -238,25 +238,35 @@ const App = () => {
                 <div className='w-full h-full overflow-hidden bg-gray-100'>
                         <div className="flex flex-col h-full">
                                 <div className="h-[80px] border-b-blue-500 border-b-2">
-                                        <div className="w-full h-full flex items-center justify-center gap-5">
-                                                <div className="flex-col flex items-center p-4">
-                                                        <div className={`w-[40px] h-[40px] p-2 ${activeTab >= 0 ? 'bg-blue-500 ': 'bg-neutral-300'} flex justify-center items-center rounded-full font-bold text-white`}>1</div>
+                                        <div className="w-full h-full flex items-center justify-center gap-10">
+                                                <div 
+                                                        onClick={()=>setActiveTab(0)}
+                                                        className="flex-col flex items-center p-4">
+                                                        <div className={`w-[40px] h-[40px] p-2 ${activeTab >= 0 ? 'bg-blue-500 ': 'bg-neutral-300'} flex justify-center items-center rounded-full font-bold text-white cursor-pointer`}>1</div>
                                                         <p>Upload pdf</p>
                                                 </div>
-                                                <div className="flex-col flex items-center">
-                                                        <div className={`w-[40px] h-[40px] p-2 ${activeTab >= 1 ? 'bg-blue-500 ' : 'bg-neutral-300'} flex justify-center items-center  rounded-full font-bold text-white`}>2</div>
+                                                <div
+                                                        onClick={() => setActiveTab(1)}
+                                                        className="flex-col flex items-center">
+                                                        <div className={`w-[40px] h-[40px] p-2 ${activeTab >= 1 ? 'bg-blue-500 ' : 'bg-neutral-300'} flex justify-center items-center  rounded-full font-bold text-white cursor-pointer`}>2</div>
                                                         <p>Extract</p>
                                                 </div>
-                                                <div className="flex-col flex items-center">
-                                                        <div className={`w-[40px] h-[40px] p-2 ${activeTab >= 2 ? 'bg-blue-500 ' : 'bg-neutral-300'} flex justify-center items-center rounded-full font-bold text-white`}>3</div>
+                                                <div
+                                                        onClick={() => setActiveTab(2)}
+                                                        className="flex-col flex items-center">
+                                                        <div className={`w-[40px] h-[40px] p-2 ${activeTab >= 2 ? 'bg-blue-500 ' : 'bg-neutral-300'} flex justify-center items-center rounded-full font-bold text-white cursor-pointer`}>3</div>
                                                         <p>Chop-off</p>
                                                 </div>
-                                                <div className="flex-col flex items-center">
-                                                        <div className={`w-[40px] h-[40px] p-2 ${activeTab >= 3 ? 'bg-blue-500 ' : 'bg-neutral-300'} flex justify-center items-center rounded-full font-bold text-white`}>4</div>
+                                                <div
+                                                        onClick={() => setActiveTab(3)}
+                                                        className="flex-col flex items-center">
+                                                        <div className={`w-[40px] h-[40px] p-2 ${activeTab >= 3 ? 'bg-blue-500 ' : 'bg-neutral-300'} flex justify-center items-center rounded-full font-bold text-white cursor-pointer`}>4</div>
                                                         <p>Processing</p>
                                                 </div>
-                                                <div className="flex-col flex items-center">
-                                                        <div className={`w-[40px] h-[40px] p-2 ${activeTab >= 4 ? 'bg-blue-500 ' : 'bg-neutral-300'} flex justify-center items-center rounded-full font-bold text-white`}>5</div>
+                                                <div
+                                                        onClick={() => setActiveTab(4)}
+                                                        className="flex-col flex items-center">
+                                                        <div className={`w-[40px] h-[40px] p-2 ${activeTab >= 4 ? 'bg-blue-500 ' : 'bg-neutral-300'} flex justify-center items-center rounded-full font-bold text-white cursor-pointer`}>5</div>
                                                         <p>Outcome</p>
                                                 </div>
                                         </div>
