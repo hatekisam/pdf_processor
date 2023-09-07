@@ -4,8 +4,8 @@ import Tab1 from './tabs/Tab1'
 import Tab3 from './tabs/Tab3'
 import Tab4 from './tabs/Tab4'
 import Tab5 from './tabs/Tab5'
-import * as PDFJS from "pdfjs-dist/build/pdf";
-PDFJS.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${PDFJS.version}/pdf.worker.min.js`;
+// import * as PDFJS from "pdfjs-dist/build/pdf";
+// PDFJS.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${PDFJS.version}/pdf.worker.min.js`;
 
 const App = () => {
         let renderedPdf;
@@ -35,21 +35,21 @@ const App = () => {
                 xhrObj.addEventListener("timeout", downloadTimeout, false);
                 xhrObj.addEventListener("abort", downloadAbort, false);
 
-                xhrObj.onreadystatechange = async (event) => {
-                        try {
-                                if (xhrObj && xhrObj.status === 400) {
-                                        console.log("download error");
-                                } else {
-                                        if (xhrObj && xhrObj.readyState === XMLHttpRequest.DONE) {
-                                                console.log("download complete");
-                                                const pdfData = await convertBlobToBase64(xhrObj.response);
-                                                loadPDFWithBlob(pdfData);
-                                        }
-                                }
-                        } catch (error) {
-                                console.error("File upload exception: ", error);
-                        }
-                };
+                // xhrObj.onreadystatechange = async (event) => {
+                //         try {
+                //                 if (xhrObj && xhrObj.status === 400) {
+                //                         console.log("download error");
+                //                 } else {
+                //                         if (xhrObj && xhrObj.readyState === XMLHttpRequest.DONE) {
+                //                                 console.log("download complete");
+                //                                 const pdfData = await convertBlobToBase64(xhrObj.response);
+                //                                 loadPDFWithBlob(pdfData);
+                //                         }
+                //                 }
+                //         } catch (error) {
+                //                 console.error("File upload exception: ", error);
+                //         }
+                // };
 
                 xhrObj.send(null);
         };
@@ -77,98 +77,98 @@ const App = () => {
                 console.log("Upload Aborted!");
         };
 
-        const loadPDFWithBlob = (pdfData: any) => {
-                const encodedPDF = pdfData;
-                const encodedData = encodedPDF.split(",");
-                if (encodedData[1] !== undefined) {
-                        const pdfbase64 = atob(encodedData[1]);
-                        showPDFInCanvas(pdfbase64);
-                }
-        };
+        // const loadPDFWithBlob = (pdfData: any) => {
+        //         const encodedPDF = pdfData;
+        //         const encodedData = encodedPDF.split(",");
+        //         if (encodedData[1] !== undefined) {
+        //                 const pdfbase64 = atob(encodedData[1]);
+        //                 showPDFInCanvas(pdfbase64);
+        //         }
+        // };
 
-        const showPDFInCanvas = async (pdfData: any) => {
-                const loadingTask = PDFJS.getDocument({ data: pdfData });
-                loadingTask.promise.then(
-                        (pdf: any) => {
-                                renderedPdf = pdf;
-                                const container = pageRenderRef.current;
-                                const pageNo = 0;
-                                fetchPageNo(pageNo, renderedPdf, container);
-                        },
-                        (error: any) => {
-                                console.log("PDF error");
-                        }
-                );
-        };
+        // const showPDFInCanvas = async (pdfData: any) => {
+        //         const loadingTask = PDFJS.getDocument({ data: pdfData });
+        //         loadingTask.promise.then(
+        //                 (pdf: any) => {
+        //                         renderedPdf = pdf;
+        //                         const container = pageRenderRef.current;
+        //                         const pageNo = 0;
+        //                         fetchPageNo(pageNo, renderedPdf, container);
+        //                 },
+        //                 (error: any) => {
+        //                         console.log("PDF error");
+        //                 }
+        //         );
+        // };
 
-        const fetchPageNo = (pageNo: any, pdf: any, container: any) => {
-                if (pageNo < pdf._pdfInfo.numPages) {
-                        pageNo += 1;
-                        createContextForCanvas(pdf, container, pageNo).then((page: any) => {
-                                fetchPageNo(page + 1, pdf, container);
-                        });
-                }
-        };
+        // const fetchPageNo = (pageNo: any, pdf: any, container: any) => {
+        //         if (pageNo < pdf._pdfInfo.numPages) {
+        //                 pageNo += 1;
+        //                 createContextForCanvas(pdf, container, pageNo).then((page: any) => {
+        //                         fetchPageNo(page + 1, pdf, container);
+        //                 });
+        //         }
+        // };
 
-        const createContextForCanvas = (pdf: any, container: any, pageNo: any) => {
-                return new Promise((resolve) => {
-                        pdf.getPage(pageNo).then(async (page: any) => {
-                                const viewport = page.getViewport({ scale: DEFAULT_SCALE });
+        // const createContextForCanvas = (pdf: any, container: any, pageNo: any) => {
+        //         return new Promise((resolve) => {
+        //                 pdf.getPage(pageNo).then(async (page: any) => {
+        //                         const viewport = page.getViewport({ scale: DEFAULT_SCALE });
 
-                                let canvasInHTML = {
-                                        canvas: undefined,
-                                        ctx: undefined
-                                };
+        //                         let canvasInHTML = {
+        //                                 canvas: undefined,
+        //                                 ctx: undefined
+        //                         };
 
-                                const li = document.createElement("div");
-                                li.setAttribute("id", "page-" + (page._pageIndex + 1));
-                                li.setAttribute("style", "position: relative;");
+        //                         const li = document.createElement("div");
+        //                         li.setAttribute("id", "page-" + (page._pageIndex + 1));
+        //                         li.setAttribute("style", "position: relative;");
 
-                                canvasInHTML.canvas = document.createElement("canvas");
-                                canvasInHTML.ctx = canvasInHTML.canvas.getContext("2d");
-                                canvasInHTML.canvas.height = viewport.height;
-                                canvasInHTML.canvas.width = viewport.width;
+        //                         canvasInHTML.canvas = document.createElement("canvas");
+        //                         canvasInHTML.ctx = canvasInHTML.canvas.getContext("2d");
+        //                         canvasInHTML.canvas.height = viewport.height;
+        //                         canvasInHTML.canvas.width = viewport.width;
 
-                                li.appendChild(canvasInHTML.canvas);
-                                container.appendChild(li);
+        //                         li.appendChild(canvasInHTML.canvas);
+        //                         container.appendChild(li);
 
-                                const renderContext = {
-                                        canvasContext: canvasInHTML.ctx,
-                                        viewport
-                                };
+        //                         const renderContext = {
+        //                                 canvasContext: canvasInHTML.ctx,
+        //                                 viewport
+        //                         };
 
-                                let renderTask = page.render(renderContext);
+        //                         let renderTask = page.render(renderContext);
 
-                                renderTask.promise.then(() => {
-                                        if (pageNo !== null) {
-                                                resolve(pageNo);
-                                        }
-                                });
+        //                         renderTask.promise.then(() => {
+        //                                 if (pageNo !== null) {
+        //                                         resolve(pageNo);
+        //                                 }
+        //                         });
 
-                                if (pageRenderRef.current) {
-                                        pageRenderRef.current = li;
-                                }
-                        });
-                });
-        };
+        //                         if (pageRenderRef.current) {
+        //                                 pageRenderRef.current = li;
+        //                         }
+        //                 });
+        //         });
+        // };
 
-        const convertBlobToBase64 = (data: any) => {
-                return new Promise((resolve, reject) => {
-                        let fileReader = new FileReader();
-                        data = new Blob([data], { type: "application/pdf" });
-                        fileReader.onload = (evt) => {
-                                const result = fileReader.result;
-                                try {
-                                        fileReader = null; // clear file reader
-                                        resolve(result);
-                                } catch (e) {
-                                        fileReader = null; // clear file reader
-                                        reject(e);
-                                }
-                        };
-                        fileReader.readAsDataURL(data);
-                });
-        };
+        // const convertBlobToBase64 = (data: any) => {
+        //         return new Promise((resolve, reject) => {
+        //                 let fileReader = new FileReader();
+        //                 data = new Blob([data], { type: "application/pdf" });
+        //                 fileReader.onload = (evt) => {
+        //                         const result = fileReader.result;
+        //                         try {
+        //                                 fileReader = null; // clear file reader
+        //                                 resolve(result);
+        //                         } catch (e) {
+        //                                 fileReader = null; // clear file reader
+        //                                 reject(e);
+        //                         }
+        //                 };
+        //                 fileReader.readAsDataURL(data);
+        //         });
+        // };
         const Tab2 = () => {
 
                 return (
