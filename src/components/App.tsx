@@ -173,12 +173,41 @@ const App = () => {
         
                 return (
                         <div className='w-full h-full'>
-                                <p>Loading: {progressTxt}</p>
-                                <div className="flex h-full">
-                                        <div className="w-[25%] h-full"></div>
-                                        <div className="w-[50%] h-full" ref={pageRenderRef}>
+                                <div className="flex h-full w-full">
+                                        <div className="w-[20%] h-full p-2 flex flex-col items-center gap-5 overflow-auto">
+                                                <div className='w-full flex flex-col items-center gap-3'>
+                                                        <div className='w-[40%] h-[150px] border-2 border-green-500 rounded-md'>
+                                                                
+                                                        </div>
+                                                        <p>Page 1</p>
+                                               </div>
+                                                <div className='w-full flex flex-col items-center gap-3'>
+                                                        <div className='w-[40%] h-[150px] border-2 border-green-500 rounded-md'>
+                                                                
+                                                        </div>
+                                                        <p>Page 2</p>
+                                               </div>
+                                                <div className='w-full flex flex-col items-center gap-3'>
+                                                        <div className='w-[40%] h-[150px] border-2 border-green-500 rounded-md'>
+                                                                
+                                                        </div>
+                                                        <p>Page 3</p>
+                                               </div>
+                                                <div className='w-full flex flex-col items-center gap-3'>
+                                                        <div className='w-[40%] h-[150px] border-2 border-green-500 rounded-md'>
+                                                                
+                                                        </div>
+                                                        <p>Page 4</p>
+                                               </div>
                                         </div>
-                                        <div className="w-[25%] h-full"></div>
+
+                                        <div className="h-full w-[50%] border-4 flex-grow" ref={pageRenderRef}>
+                                        
+                                        </div>
+
+                                        <div className=" h-full w-[20%]">
+                                                meta
+                                        </div>
                                 </div>
                         </div>
                 )
