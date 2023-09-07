@@ -170,35 +170,35 @@ const App = () => {
                 });
         };
         const Tab2 = () => {
-        
+
                 return (
                         <div className='w-full h-full'>
                                 <div className="flex h-full w-full">
                                         <div className="w-[20%] h-full p-2 flex flex-col items-center gap-5 overflow-auto">
                                                 <div className='w-full flex flex-col items-center gap-3'>
                                                         <div className='w-[40%] h-[150px] border-2 border-green-500 rounded-md'>
-                                                                
+
                                                         </div>
                                                         <p>Page 1</p>
-                                               </div>
+                                                </div>
                                                 <div className='w-full flex flex-col items-center gap-3'>
                                                         <div className='w-[40%] h-[150px] border-2 border-green-500 rounded-md'>
-                                                                
+
                                                         </div>
                                                         <p>Page 2</p>
-                                               </div>
+                                                </div>
                                                 <div className='w-full flex flex-col items-center gap-3'>
                                                         <div className='w-[40%] h-[150px] border-2 border-green-500 rounded-md'>
-                                                                
+
                                                         </div>
                                                         <p>Page 3</p>
-                                               </div>
+                                                </div>
                                                 <div className='w-full flex flex-col items-center gap-3'>
                                                         <div className='w-[40%] h-[150px] border-2 border-green-500 rounded-md'>
-                                                                
+
                                                         </div>
                                                         <p>Page 4</p>
-                                               </div>
+                                                </div>
                                         </div>
 
                                         <div className="h-full w-[50%] border-4 flex-grow flex items-center justify-center flex-col text-center gap-5" ref={pageRenderRef}>
@@ -239,10 +239,10 @@ const App = () => {
                         <div className="flex flex-col h-full">
                                 <div className="h-[80px] border-b-blue-500 border-b-2">
                                         <div className="w-full h-full flex items-center justify-center gap-10">
-                                                <div 
-                                                        onClick={()=>setActiveTab(0)}
+                                                <div
+                                                        onClick={() => setActiveTab(0)}
                                                         className="flex-col flex items-center p-4">
-                                                        <div className={`w-[40px] h-[40px] p-2 ${activeTab >= 0 ? 'bg-blue-500 ': 'bg-neutral-300'} flex justify-center items-center rounded-full font-bold text-white cursor-pointer`}>1</div>
+                                                        <div className={`w-[40px] h-[40px] p-2 ${activeTab >= 0 ? 'bg-blue-500 ' : 'bg-neutral-300'} flex justify-center items-center rounded-full font-bold text-white cursor-pointer`}>1</div>
                                                         <p>Upload pdf</p>
                                                 </div>
                                                 <div
@@ -274,12 +274,16 @@ const App = () => {
                                 <div className="h-full ">
                                         {tabs[activeTab]()}
                                 </div>
-                                <div className="h-[50px]  absolute bottom-0 w-full">
-                                        <div className="flex flex-row justify-between items-center px-4 py-1">
-                                                <div></div>
-                                                <button onClick={() => setActiveTab(activeTab + 1)} className='px-4 py-2 rounded-md bg-blue-500 text-white'>Next</button>
-                                        </div>
-                                </div>
+                                {
+                                        activeTab !== tabs.length - 1 && (
+                                                <div className="h-[50px]  absolute bottom-0 w-full">
+                                                        <div className="flex flex-row justify-between items-center px-4 py-1">
+                                                                <div></div>
+                                                                <button onClick={() => setActiveTab(activeTab + 1)} className='px-4 py-2 rounded-md bg-blue-500 text-white'>Next</button>
+                                                        </div>
+                                                </div>
+                                        )
+                                }
                         </div>
                 </div>
         )
