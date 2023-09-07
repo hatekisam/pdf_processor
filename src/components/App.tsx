@@ -201,8 +201,17 @@ const App = () => {
                                                </div>
                                         </div>
 
-                                        <div className="h-full w-[50%] border-4 flex-grow" ref={pageRenderRef}>
-                                        
+                                        <div className="h-full w-[50%] border-4 flex-grow flex items-center justify-center flex-col text-center gap-5" ref={pageRenderRef}>
+                                                <h1 className='text-[2rem] font-bold'>This is the PDF</h1>
+
+                                                <div>
+                                                        <h1 className='font-bold mb-5 text-[1.2rem]'>Author</h1>
+                                                        <p className='p-2 border-dashed border-2'> Andrew</p>
+                                                </div>
+                                                <div>
+                                                        <h1 className='font-bold mb-5 text-[1.2rem]'>ISBN</h1>
+                                                        <p className='p-2 border-dashed border-2'> 123456789</p>
+                                                </div>
                                         </div>
 
                                         <div className=" h-full w-[20%]">
