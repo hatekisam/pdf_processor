@@ -214,8 +214,19 @@ const App = () => {
                                                 </div>
                                         </div>
 
-                                        <div className=" h-full w-[20%]">
-                                                meta
+                                        <div className=" h-full w-[20%] flex flex-col overflow-auto p-4 gap-5">
+                                                <div className='w-full p-2 rounded-md border-2 border-black text-center gap-4 overflow-auto'>
+                                                        <h1>Author name</h1>
+                                                </div>
+                                                <div className='w-full p-2 rounded-md border-2 border-black text-center'>
+                                                        <h1>ISBN</h1>
+                                                </div>
+                                                <div className='w-full p-2 rounded-md border-2 border-black text-center'>
+                                                        <h1>Publish Date</h1>
+                                                </div>
+                                                <div className='w-full p-2 rounded-md border-2 border-black text-center'>
+                                                        <h1>...</h1>
+                                                </div>
                                         </div>
                                 </div>
                         </div>
@@ -253,7 +264,7 @@ const App = () => {
                                 <div className="h-full ">
                                         {tabs[activeTab]()}
                                 </div>
-                                <div className="h-[50px] ">
+                                <div className="h-[50px]  absolute bottom-0 w-full">
                                         <div className="flex flex-row justify-between items-center px-4 py-1">
                                                 <div></div>
                                                 <button onClick={() => setActiveTab(activeTab + 1)} className='px-4 py-2 rounded-md bg-blue-500 text-white'>Next</button>
